@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For My Love 💗</title>
+
+<style>
+
+body{
+margin:0;
+font-family:'Segoe UI',sans-serif;
+background:white;
+overflow-x:hidden;
+}
+
+/* HEADER */
+
+header{
+text-align:center;
+padding:50px 20px;
+background:#f793ce;
+color:white;
+font-size:34px;
+font-weight:bold;
+}
+
+/* LOVE TIMER */
+
+.timer{
+text-align:center;
+margin-top:20px;
+font-size:20px;
+color:#f793ce;
+font-weight:bold;
+}
+
+/* LETTER */
+
+.container{
+max-width:900px;
+margin:auto;
+padding:40px 20px;
+}
+
+.letter{
+background:white;
+border:4px solid #f793ce;
+border-radius:20px;
+padding:35px;
+font-size:18px;
+line-height:1.7;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+animation:fadeIn 2s ease;
+}
+
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(40px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+/* GALLERY */
+
+.gallery{
+margin-top:60px;
+}
+
+.gallery h2{
+text-align:center;
+color:#f793ce;
+}
+
+.photos{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+margin-top:30px;
+}
+
+.photos img{
+width:100%;
+border-radius:15px;
+border:4px solid #f793ce;
+transition:.3s;
+}
+
+.photos img:hover{
+transform:scale(1.05);
+box-shadow:0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* HEARTS */
+
+.heart{
+position:fixed;
+bottom:-20px;
+font-size:20px;
+animation:floatUp 8s linear infinite;
+color:#f793ce;
+}
+
+@keyframes floatUp{
+from{transform:translateY(0);opacity:1;}
+to{transform:translateY(-120vh);opacity:0;}
+}
+
+/* POPUP */
+
+.popup{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.5);
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.popup-box{
+background:white;
+padding:40px;
+border-radius:15px;
+text-align:center;
+border:3px solid #f793ce;
+}
+
+.popup button{
+margin-top:15px;
+padding:10px 20px;
+border:none;
+background:#f793ce;
+color:white;
+border-radius:8px;
+cursor:pointer;
+}
+
+footer{
+text-align:center;
+margin-top:40px;
+padding:20px;
+color:#888;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="popup" id="popup">
+<div class="popup-box">
+<h2>Hi Love 💗</h2>
+<p>I made this little website for you.</p>
+<button onclick="closePopup()">Open Letter</button>
+</div>
+</div>
+
+<header>
+Our Love Story 💗
+</header>
+
+<div class="timer" id="loveTimer"></div>
+
+<div class="container">
+
+<div class="letter">
+
+<p>Hi Love, 9 months na ta together and I’m really happy na uyab tika. I love you always Love 💗. We’ve been through so much together already, and I’m willing to face whatever problems come as long as ikaw ang kauban nako.</p>
+
+<p>Dli man kaayo ko goods sa words, but I always try to show my love through my actions as much as I can. During our OJT days, I’m so grateful we got to experience that time together. Always ko excited every morning pagmaabot ka. I loved the moments na magluto ka for us and sabay ta magbreakfast.</p>
+
+<p>Then pag gabie na and muuli naka, medyo masad ko kay mulakaw naka and ako nalang mabilin. But I always think about the next morning again, na maabot ka and we get to spend time together.</p>
+
+<p>I can’t wait for the day na magkauban na jud ta everyday and every night, living together and making more memories.</p>
+
+<p>I don’t want anyone else, Love. Ikaw ra jud. I LOVE YOU SO MUCH AND ALWAYS NA LOVE 💗</p>
+
+<p><strong>Only yours and yours only,<br>Love</strong></p>
+
+</div>
+
+<div class="gallery">
+
+<h2>Our Memories 📸</h2>
+
+<div class="photos">
+
+<img src="photo1.jpg">
+<img src="photo2.jpg">
+<img src="photo3.jpg">
+<img src="photo4.jpg">
+
+</div>
+
+</div>
+
+</div>
+
+<footer>
+Made with love 💗
+</footer>
+
+<script>
+
+/* POPUP */
+
+function closePopup(){
+document.getElementById("popup").style.display="none";
+}
+
+/* HEARTS */
+
+function createHeart(){
+const heart=document.createElement("div");
+heart.classList.add("heart");
+heart.innerHTML="💗";
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(15+Math.random()*25)+"px";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},8000)
+}
+
+setInterval(createHeart,500);
+
+/* LOVE TIMER */
+
+const startDate=new Date("June 13, 2025");
+
+function updateTimer(){
+
+const now=new Date();
+const diff=now-startDate;
+
+const days=Math.floor(diff/(1000*60*60*24));
+const hours=Math.floor((diff/(1000*60*60))%24);
+const minutes=Math.floor((diff/(1000*60))%60);
+
+document.getElementById("loveTimer").innerHTML=
+"Together for "+days+" days "+hours+" hours "+minutes+" minutes 💗";
+
+}
+
+setInterval(updateTimer,1000);
+
+</script>
+
+</body>
+</html>
